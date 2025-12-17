@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 150 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 25%;
+
+    --primary: 168 76% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 30% 96%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 13 69% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 90%;
+    --input: 150 20% 90%;
+    --ring: 168 76% 32%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --primary-light: 168 70% 40%;
+    --primary-dark: 168 80% 25%;
+    --accent-dark: 13 69% 47%;
+    --hero-bg: 35 35% 91%;
+    --hero-gradient: linear-gradient(135deg, hsl(168, 76%, 32%) 0%, hsl(168, 80%, 25%) 100%);
+    --cta-gradient: linear-gradient(135deg, hsl(13, 69%, 57%) 0%, hsl(13, 69%, 47%) 100%);
+    --banner-gradient: linear-gradient(90deg, hsl(168, 70%, 35%) 0%, hsl(168, 76%, 32%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(150 10% 25% / 0.08);
+    --shadow-md: 0 4px 16px hsl(150 10% 25% / 0.12);
+    --shadow-lg: 0 8px 32px hsl(150 10% 25% / 0.16);
+    --shadow-cta: 0 4px 20px hsl(13 69% 57% / 0.4);
+
+    /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 150 10% 98%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 150 10% 98%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 150 10% 98%;
+
+    --primary: 168 70% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 40% 25%;
+    --secondary-foreground: 150 10% 98%;
+
+    --muted: 150 20% 20%;
+    --muted-foreground: 150 15% 65%;
+
+    --accent: 13 69% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 150 10% 98%;
+
+    --border: 150 20% 20%;
+    --input: 150 20% 20%;
+    --ring: 168 70% 40%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--hero-gradient);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--hero-gradient);
+  }
+
+  .bg-gradient-cta {
+    background-image: var(--cta-gradient);
+  }
+
+  .bg-gradient-banner {
+    background-image: var(--banner-gradient);
+  }
+
+  .shadow-cta {
+    box-shadow: var(--shadow-cta);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
